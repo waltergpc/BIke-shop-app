@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../assets/logo.svg'
+import logo from '../assets/bike-logo.png'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { links } from '../utils/constants'
@@ -9,6 +9,7 @@ import { useProductsContext } from '../context/products_context'
 import { useUserContext } from '../context/user_context'
 
 const Nav = () => {
+  const { openSidebar } = useProductsContext()
   return (
     <NavContainer>
       <div className="nav-center">
@@ -16,7 +17,7 @@ const Nav = () => {
           <Link to="/">
             <img src={logo} alt="Bike terrain" />
           </Link>
-          <button type="button" className="nav-toggle">
+          <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
           </button>
         </div>
@@ -41,6 +42,8 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgb(166, 77, 0);
+  color: beige;
 
   .nav-center {
     width: 90vw;
@@ -52,7 +55,8 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     img {
-      width: 175px;
+      width: 150px;
+      height: 78px;
       margin-left: -15px;
     }
   }
@@ -87,13 +91,16 @@ const NavContainer = styled.nav`
         margin: 0 0.5rem;
       }
       a {
-        color: var(--clr-grey-3);
+        color: beige;
         font-size: 1rem;
         text-transform: capitalize;
         letter-spacing: var(--spacing);
         padding: 0.5rem;
+        transition: all 0.2s linear;
+
         &:hover {
-          border-bottom: 2px solid var(--clr-primary-7);
+          border-bottom: 2px solid rgb(16, 98, 110);
+          color: rgb(16, 98, 110);
         }
       }
     }

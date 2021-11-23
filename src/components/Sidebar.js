@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
+import logo from '../assets/bike-logo.png'
 import { Link } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
 import { FaTimes } from 'react-icons/fa'
@@ -9,13 +9,14 @@ import CartButtons from './CartButtons'
 import { useUserContext } from '../context/user_context'
 
 const Sidebar = () => {
-  const isOpen = true
+  const { closeSidebar, sideBarOpen } = useProductsContext()
+
   return (
     <SidebarContainer>
-      <aside className={isOpen ? 'sidebar show-sidebar' : 'sidebar'}>
+      <aside className={sideBarOpen ? 'sidebar show-sidebar' : 'sidebar'}>
         <div className="sidebar-header">
           <img src={logo} className="logo" alt="bike-terrain" />
-          <button className="close-btn" type="button">
+          <button className="close-btn" type="button" onClick={closeSidebar}>
             <FaTimes />
           </button>
         </div>
@@ -24,12 +25,16 @@ const Sidebar = () => {
             const { id, text, url } = link
             return (
               <li key={id}>
-                <Link to={url}>{text}</Link>
+                <Link to={url} onClick={closeSidebar}>
+                  {text}
+                </Link>
               </li>
             )
           })}
           <li>
-            <Link to="checkout">Checkout</Link>
+            <Link to="checkout" onClick={closeSidebar}>
+              Checkout
+            </Link>
           </li>
         </ul>
         <CartButtons />
@@ -53,7 +58,7 @@ const SidebarContainer = styled.div`
     color: var(--clr-primary-5);
     transition: var(--transition);
     cursor: pointer;
-    color: var(--clr-red-dark);
+    color: rgb(16, 98, 110);
     margin-top: 0.2rem;
   }
   .close-btn:hover {
@@ -61,7 +66,7 @@ const SidebarContainer = styled.div`
   }
   .logo {
     justify-self: center;
-    height: 45px;
+    height: 60px;
   }
   .links {
     margin-bottom: 2rem;
@@ -72,7 +77,7 @@ const SidebarContainer = styled.div`
     font-size: 1rem;
     text-transform: capitalize;
     padding: 1rem 1.5rem;
-    color: var(--clr-grey-3);
+    color: beige;
     transition: var(--transition);
     letter-spacing: var(--spacing);
   }
@@ -94,6 +99,8 @@ const SidebarContainer = styled.div`
     transition: var(--transition);
     transform: translate(-100%);
     z-index: -1;
+    background-color: rgb(166, 77, 0);
+    color: beige;
   }
   .show-sidebar {
     transform: translate(0);
