@@ -3,17 +3,40 @@ import styled from 'styled-components'
 import { services } from '../utils/constants'
 
 const Services = () => {
-  return <h4>services </h4>
+  return (
+    <Wrapper>
+      <div className="section-center">
+        <article className="header">
+          <h3>Best bike shop in town</h3>
+          <p>
+            Check out our multiple services we offer in our phyisical store!
+          </p>
+        </article>
+        <div className="services-center">
+          {services.map((service) => {
+            const { id, icon, title, text } = service
+            return (
+              <article key={id} className="service">
+                <span className="icon">{icon}</span>
+                <h4>{title}</h4>
+                <p>{text}</p>
+              </article>
+            )
+          })}
+        </div>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
   h3,
   h4 {
-    color: var(--clr-primary-1);
+    color: beige;
   }
   padding: 5rem 0;
 
-  background: var(--clr-primary-10);
+  background: rgba(166, 77, 0, 0.7);
 
   .header h3 {
     margin-bottom: 2rem;
@@ -21,7 +44,7 @@ const Wrapper = styled.section`
   p {
     margin-bottom: 0;
     line-height: 1.8;
-    color: var(--clr-primary-3);
+    color: beige;
   }
   .services-center {
     margin-top: 4rem;
@@ -29,12 +52,12 @@ const Wrapper = styled.section`
     gap: 2.5rem;
   }
   .service {
-    background: var(--clr-primary-7);
+    background: var(--clr-black);
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: var(--radius);
     p {
-      color: var(--clr-primary-2);
+      color: beige;
     }
   }
   span {
@@ -45,8 +68,8 @@ const Wrapper = styled.section`
     place-items: center;
     margin-bottom: 1rem;
     border-radius: 50%;
-    background: var(--clr-primary-10);
-    color: var(--clr-primary-1);
+    background: rgb(166, 77, 0);
+    color: beige;
     svg {
       font-size: 2rem;
     }

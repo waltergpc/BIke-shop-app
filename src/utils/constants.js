@@ -1,5 +1,6 @@
 import React from 'react'
-import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi'
+import { GiThreeFriends, GiDutchBike } from 'react-icons/gi'
+import { BiWrench } from 'react-icons/bi'
 export const links = [
   {
     id: 1,
@@ -21,21 +22,21 @@ export const links = [
 export const services = [
   {
     id: 1,
-    icon: <GiCompass />,
-    title: 'mission',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+    icon: <GiDutchBike />,
+    title: 'Bike Stock',
+    text: 'We sell bikes and accesories to make your ride as sweet as possible, our stock includes MTB, road, commute and all essentials.',
   },
   {
     id: 2,
-    icon: <GiDiamondHard />,
-    title: 'vision',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+    icon: <BiWrench />,
+    title: 'Service and Detail',
+    text: 'Come in with our technicians for a mid-year service, with different options. We service forks and shocks also. Rough riding? ask about our detail services.',
   },
   {
     id: 3,
-    icon: <GiStabbedNote />,
-    title: 'history',
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+    icon: <GiThreeFriends />,
+    title: 'Community',
+    text: 'At Bike terrain we want to make a great community, please join us in our weekly ride to different places. specifications and expertise will change on a weekly basis.',
   },
 ]
 

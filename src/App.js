@@ -1,7 +1,15 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import { Navbar, Sidebar, Footer, Error } from './components'
-import { Home, About, Products, Cart, Checkout, SingleProduct } from './pages'
+import { Navbar, Sidebar, Footer } from './components'
+import {
+  Home,
+  About,
+  Products,
+  Cart,
+  Checkout,
+  SingleProduct,
+  Error,
+} from './pages'
 
 function App() {
   return (

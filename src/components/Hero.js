@@ -1,11 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import heroBcg from '../assets/hero-bcg.jpeg'
-import heroBcg2 from '../assets/hero-bcg-2.jpeg'
+import heroBcg from '../assets/bike-about.jpeg'
+import heroBcg2 from '../assets/bike-hero2.jpeg'
 
 const Hero = () => {
-  return <h4>hero</h4>
+  return (
+    <Wrapper className="section-center">
+      <article className="content">
+        <h1>Up and down on every hill!</h1>
+        <p>
+          Welcome to Bike terrain shop, well established bike dealer and service
+          shop where you will find everything you need for your next adventure,
+          we have a something for every need so please check out our stuff and
+          don't hesitate to come around for a demo ride or a super sweet
+          service!
+        </p>
+        <Link to="products" className="btn hero-btn">
+          Go to Shop
+        </Link>
+      </article>
+      <article className="img-container">
+        <img src={heroBcg} alt="downhill bike" className="main-img" />
+        <img src={heroBcg2} alt="trail-riding" className="accent-img" />
+      </article>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
@@ -32,6 +52,7 @@ const Wrapper = styled.section`
     }
     p {
       font-size: 1.25rem;
+      padding-right: 2em;
     }
     .hero-btn {
       padding: 0.75rem 1.5rem;
@@ -43,7 +64,7 @@ const Wrapper = styled.section`
     }
     .main-img {
       width: 100%;
-      height: 550px;
+      height: 340px;
       position: relative;
       border-radius: var(--radius);
       display: block;
@@ -53,16 +74,17 @@ const Wrapper = styled.section`
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 250px;
-      transform: translateX(-50%);
+      width: 64%;
+      transform: translateX(-40%);
       border-radius: var(--radius);
+      margin-left: 1em;
     }
     .img-container::before {
       content: '';
       position: absolute;
       width: 10%;
       height: 80%;
-      background: var(--clr-primary-9);
+      background: var(--clr-grey-9);
       bottom: 0%;
       left: -8%;
       border-radius: var(--radius);
