@@ -42,7 +42,7 @@ const Sort = () => {
           onChange={updateSort}
         >
           <option value="price-lowest">Lower price</option>
-          <option value="price-higher">Higher price</option>
+          <option value="price-highest">Higher price</option>
           <option value="name-a">name a-z</option>
           <option value="name-z">name z-a</option>
         </select>

@@ -6,4 +6,10 @@ export const formatPrice = (num) => {
   return formatted
 }
 
-export const getUniqueValues = () => {}
+export const getUniqueValues = (arr, key) => {
+  let unique = arr.map((item) => item[key])
+  if (key === 'size') {
+    unique = unique.flat()
+  }
+  return ['all', ...new Set(unique)]
+}
