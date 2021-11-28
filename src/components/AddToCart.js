@@ -1,12 +1,65 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { FaCheck } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import AmountButtons from './AmountButtons'
 
-const AddToCart = () => {
-  return <h4>addToCart </h4>
+const AddToCart = ({ product }) => {
+  const { _id: id, quantity, size } = product
+
+  const [mainSize, setMainSize] = useState(size[0])
+  const [amount, setAmount] = useState(1)
+
+  const increase = () => {
+    setAmount((oldAmount) => {
+      let tempAmount = oldAmount + 1
+      if (tempAmount > quantity) {
+        tempAmount = quantity
+      }
+      return tempAmount
+    })
+  }
+
+  const decrease = () => {
+    setAmount((oldAmount) => {
+      let tempAmount = oldAmount - 1
+      if (tempAmount < 1) {
+        tempAmount = 1
+      }
+      return tempAmount
+    })
+  }
+
+  return (
+    <Wrapper>
+      <div className="colors">
+        <span> Sizes : </span>
+        <div>
+          {size.map((size, index) => {
+            return (
+              <button
+                key={index}
+                className={mainSize === size ? 'color-btn active' : 'color-btn'}
+                onClick={() => setMainSize(size)}
+              >
+                {size}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+      <div className="btn-container">
+        <AmountButtons
+          amount={amount}
+          increase={increase}
+          decrease={decrease}
+        />
+        <Link to="cart" className="btn">
+          Add to cart
+        </Link>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
@@ -26,10 +79,13 @@ const Wrapper = styled.section`
   }
   .color-btn {
     display: inline-block;
-    width: 1.5rem;
+    width: auto;
+    color: beige;
+    padding: 0.5em;
     height: 1.5rem;
-    border-radius: 50%;
-    background: #222;
+    border-radius: 5%;
+    background: var(--clr-grey-1);
+    font-weight: bold;
     margin-right: 0.5rem;
     border: none;
     cursor: pointer;
@@ -37,6 +93,7 @@ const Wrapper = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: var(--transition);
     svg {
       font-size: 0.75rem;
       color: var(--clr-white);
@@ -44,6 +101,8 @@ const Wrapper = styled.section`
   }
   .active {
     opacity: 1;
+    background-color: var(--clr-green-dark);
+    transform: scale(1.2);
   }
   .btn-container {
     margin-top: 2rem;

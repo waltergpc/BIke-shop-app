@@ -47,7 +47,52 @@ const SingleProductPage = () => {
     return <Error />
   }
 
-  return <h4>{singleProduct.name}</h4>
+  const {
+    name,
+    _id: productId,
+    brand,
+    category,
+    images,
+    description,
+    featured,
+    hardtail,
+    mountain,
+    price,
+    quantity,
+    reviews,
+    shipping,
+    stars,
+  } = singleProduct
+
+  return (
+    <Wrapper>
+      <PageHero product={mountain ? 'MTB' : 'Road'} />
+      <div className="section section-center page">
+        <Link to="/products" className="btn">
+          Back to all bikes
+        </Link>
+        <div className="products-center">
+          <ProductImages images={images} />
+          <section className="content">
+            <h2>{name}</h2>
+            <Stars stars={stars} reviews={reviews} />
+            <h5 className="price">{formatPrice(price)}</h5>
+            <p className="desc">{description}</p>
+            <p className="info">
+              <span> Available: </span>
+              {quantity === 0 ? 'Out of Stock' : quantity}
+            </p>
+            <p className="info">
+              <span> Brand: </span>
+              {brand}
+            </p>
+            <hr />
+            {quantity > 0 && <AddToCart product={singleProduct} />}
+          </section>
+        </div>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.main`

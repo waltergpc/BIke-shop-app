@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-const PageHero = ({ title }) => {
+const PageHero = ({ title, product }) => {
   return (
     <Wrapper>
       <div className="section-center">
-        <h3>{title}</h3>
+        {product ? <h3>{product}</h3> : <h3>{title}</h3>}
       </div>
     </Wrapper>
   )
