@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const PageHero = ({ title, product }) => {
   return (
     <Wrapper>
-      <div className="section-center">
+      <div className='section-center'>
         {product ? <h3>{product}</h3> : <h3>{title}</h3>}
       </div>
     </Wrapper>
@@ -11,13 +11,13 @@ const PageHero = ({ title, product }) => {
 }
 
 const Wrapper = styled.section`
-  background: rgba(186, 135, 62, 0.5);
+  background: var(--clr-black);
   width: 100%;
-  min-height: 20vh;
+  min-height: 15vh;
   display: flex;
   align-items: center;
 
-  color: var(--clr-primary-1);
+  color: var(--clr-primary-7);
   a {
     color: var(--clr-primary-3);
     padding: 0.5rem;
