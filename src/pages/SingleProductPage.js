@@ -49,40 +49,36 @@ const SingleProductPage = () => {
 
   const {
     name,
-    _id: productId,
     brand,
-    category,
     images,
     description,
-    featured,
-    hardtail,
     mountain,
     price,
     quantity,
     reviews,
-    shipping,
+
     stars,
   } = singleProduct
 
   return (
     <Wrapper>
       <PageHero product={mountain ? 'MTB' : 'Road'} />
-      <div className="section section-center page">
-        <Link to="/products" className="btn">
+      <div className='section section-center page'>
+        <Link to='/products' className='btn'>
           Back to all bikes
         </Link>
-        <div className="products-center">
+        <div className='product-center'>
           <ProductImages images={images} />
-          <section className="content">
+          <section className='content'>
             <h2>{name}</h2>
             <Stars stars={stars} reviews={reviews} />
-            <h5 className="price">{formatPrice(price)}</h5>
-            <p className="desc">{description}</p>
-            <p className="info">
+            <h5 className='price'>{formatPrice(price)}</h5>
+            <p className='desc'>{description}</p>
+            <p className='info'>
               <span> Available: </span>
               {quantity === 0 ? 'Out of Stock' : quantity}
             </p>
-            <p className="info">
+            <p className='info'>
               <span> Brand: </span>
               {brand}
             </p>

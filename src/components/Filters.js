@@ -17,7 +17,6 @@ const Filters = () => {
     },
     updateFilters,
     clearFilters,
-    filteredProducts,
     allProducts,
   } = useFilterContext()
 

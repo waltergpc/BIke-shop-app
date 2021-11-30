@@ -10,17 +10,18 @@ import { useUserContext } from '../context/user_context'
 
 const Sidebar = () => {
   const { closeSidebar, sideBarOpen } = useProductsContext()
+  const { myUser } = useUserContext()
 
   return (
     <SidebarContainer>
       <aside className={sideBarOpen ? 'sidebar show-sidebar' : 'sidebar'}>
-        <div className="sidebar-header">
-          <img src={logo} className="logo" alt="bike-terrain" />
-          <button className="close-btn" type="button" onClick={closeSidebar}>
+        <div className='sidebar-header'>
+          <img src={logo} className='logo' alt='bike-terrain' />
+          <button className='close-btn' type='button' onClick={closeSidebar}>
             <FaTimes />
           </button>
         </div>
-        <ul className="links">
+        <ul className='links'>
           {links.map((link) => {
             const { id, text, url } = link
             return (
@@ -31,11 +32,13 @@ const Sidebar = () => {
               </li>
             )
           })}
-          <li>
-            <Link to="checkout" onClick={closeSidebar}>
-              Checkout
-            </Link>
-          </li>
+          {myUser && (
+            <li>
+              <Link to='checkout' onClick={closeSidebar}>
+                Checkout
+              </Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </aside>

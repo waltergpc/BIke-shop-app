@@ -6,6 +6,7 @@ import AmountButtons from './AmountButtons'
 
 const AddToCart = ({ product }) => {
   const { _id: id, quantity, size } = product
+  const { addToCart } = useCartContext()
 
   const [mainSize, setMainSize] = useState(size[0])
   const [amount, setAmount] = useState(1)
@@ -32,7 +33,7 @@ const AddToCart = ({ product }) => {
 
   return (
     <Wrapper>
-      <div className="colors">
+      <div className='colors'>
         <span> Sizes : </span>
         <div>
           {size.map((size, index) => {
@@ -48,13 +49,17 @@ const AddToCart = ({ product }) => {
           })}
         </div>
       </div>
-      <div className="btn-container">
+      <div className='btn-container'>
         <AmountButtons
           amount={amount}
           increase={increase}
           decrease={decrease}
         />
-        <Link to="cart" className="btn">
+        <Link
+          to='/cart'
+          className='btn'
+          onClick={() => addToCart(id, mainSize, amount, product)}
+        >
           Add to cart
         </Link>
       </div>

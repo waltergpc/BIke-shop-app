@@ -1,6 +1,5 @@
 import React from 'react'
 import { useProductsContext } from '../context/products_context'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Error from './Error'
 import Loading from './Loading'
@@ -18,9 +17,9 @@ const FeaturedProducts = () => {
     return <Error />
   }
   return (
-    <Wrapper className="section">
-      <div className="title">New Arrivals</div>
-      <div className="section-center featured">
+    <Wrapper className='section'>
+      <div className='title'>New Arrivals</div>
+      <div className='section-center featured'>
         {featuredProducts.map((product) => {
           return <Product key={product._id} {...product} />
         })}
