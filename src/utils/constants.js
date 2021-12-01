@@ -40,4 +40,5 @@ export const services = [
   },
 ]
 
-export const products_url = 'http://localhost:5000/api/v1/bikes'
+export const products_url =
+  'https://bike-terrain-api.herokuapp.com/api/v1/bikes'
